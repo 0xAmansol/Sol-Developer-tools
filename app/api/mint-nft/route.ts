@@ -77,7 +77,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
 
     // Find the PDA for the metadata account
-    const [metadataPDA] = PublicKey.findProgramAddressSync(
+    const [metadataPDA, _bump] = PublicKey.findProgramAddressSync(
       [
         Buffer.from("metadata"),
         METADATA_PROGRAM_ID.toBuffer(),
@@ -88,7 +88,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     // Prepare the metadata
     const metadataAccounts: CreateMetadataAccountV3InstructionAccounts = {
-      metadata: metadataPDA,
+      metadata: [metadataPDA, 0],
       mint: mint,
       mintAuthority: payerKeypair.publicKey,
       payer: payerKeypair,
