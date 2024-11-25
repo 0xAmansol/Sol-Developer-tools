@@ -90,9 +90,13 @@ export async function POST(request: Request): Promise<NextResponse> {
     const metadataAccounts: CreateMetadataAccountV3InstructionAccounts = {
       //@ts-ignore
       metadata: metadataPDA,
+      //@ts-ignore
       mint: mint,
+      //@ts-ignore
       mintAuthority: payerKeypair,
+      //@ts-ignore
       payer: payerKeypair,
+      //@ts-ignore
       updateAuthority: payerKeypair,
     };
 
