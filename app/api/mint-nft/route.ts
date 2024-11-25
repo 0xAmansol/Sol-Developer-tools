@@ -119,9 +119,13 @@ export async function POST(request: Request): Promise<NextResponse> {
       {
         //@ts-ignore
         metadata: metadataAccounts.metadata,
+        //@ts-ignore
         mint: metadataAccounts.mint,
+        //@ts-ignore
         mintAuthority: metadataAccounts.mintAuthority,
+        //@ts-ignore
         payer: metadataAccounts.payer,
+        //@ts-ignore
         updateAuthority: metadataAccounts.updateAuthority,
       },
       metadataArgs
