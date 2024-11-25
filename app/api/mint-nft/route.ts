@@ -132,7 +132,10 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
 
     // Construct and send the transaction
-    const transaction = new Transaction().add(createMetadataInstruction);
+    const transaction = new Transaction()
+      //@ts-ignore
+      .add(createMetadataInstruction);
+
     const signature = await sendAndConfirmTransaction(connection, transaction, [
       payerKeypair,
     ]);
