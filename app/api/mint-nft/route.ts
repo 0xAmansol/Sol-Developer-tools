@@ -88,6 +88,7 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     // Prepare the metadata
     const metadataAccounts: CreateMetadataAccountV3InstructionAccounts = {
+      //@ts-ignore
       metadata: [metadataPDA, 0],
       mint: mint,
       mintAuthority: payerKeypair.publicKey,
