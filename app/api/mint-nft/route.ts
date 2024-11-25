@@ -88,15 +88,10 @@ export async function POST(request: Request): Promise<NextResponse> {
 
     // Prepare the metadata
     const metadataAccounts: CreateMetadataAccountV3InstructionAccounts = {
-      //@ts-ignore
       metadata: metadataPDA,
-      //@ts-ignore
       mint: mint,
-      //@ts-ignore
-      mintAuthority: payerKeypair,
-      //@ts-ignore
+      mintAuthority: payerKeypair.publicKey,
       payer: payerKeypair,
-      //@ts-ignore
       updateAuthority: payerKeypair,
     };
 
@@ -117,6 +112,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     // Create metadata account instruction
     const createMetadataInstruction = createMetadataAccountV3(
       {
+        //@ts-ignore
         metadata: metadataAccounts.metadata,
         mint: metadataAccounts.mint,
         mintAuthority: metadataAccounts.mintAuthority,
