@@ -1,29 +1,39 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Code, ExternalLink, Droplets, Wallet } from 'lucide-react'
-import Link from 'next/link'
-import { useToast } from "@/components/ui/use-toast"
-import { Toast } from "@/components/ui/toast"
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Code, ExternalLink, Droplets, Wallet } from "lucide-react";
+import Link from "next/link";
+import { useToast } from "@/components/ui/use-toast";
+import { Toast } from "@/components/ui/toast";
 
 const FloatingParticle = ({ index }: { index: number }) => {
-  const [position, setPosition] = useState({ x: Math.random() * 100, y: Math.random() * 100 })
-  const [size] = useState(Math.random() * 4 + 1)
-  const [speed] = useState(Math.random() * 0.5 + 0.1)
+  const [position, setPosition] = useState({
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+  });
+  const [size] = useState(Math.random() * 4 + 1);
+  const [speed] = useState(Math.random() * 0.5 + 0.1);
 
   useEffect(() => {
     const animateParticle = () => {
-      setPosition(prev => ({
+      setPosition((prev) => ({
         x: (prev.x + speed) % 100,
-        y: prev.y
-      }))
-    }
+        y: prev.y,
+      }));
+    };
 
-    const intervalId = setInterval(animateParticle, 50)
-    return () => clearInterval(intervalId)
-  }, [speed])
+    const intervalId = setInterval(animateParticle, 50);
+    return () => clearInterval(intervalId);
+  }, [speed]);
 
   return (
     <div
@@ -36,12 +46,12 @@ const FloatingParticle = ({ index }: { index: number }) => {
         zIndex: 1,
       }}
     />
-  )
-}
+  );
+};
 
 export default function Component() {
-  const { toast } = useToast()
-  const [particles] = useState(Array.from({ length: 50 }, (_, i) => i))
+  const { toast } = useToast();
+  const [particles] = useState(Array.from({ length: 50 }, (_, i) => i));
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-950 text-gray-100 relative overflow-hidden">
@@ -52,22 +62,32 @@ export default function Component() {
       </div>
       <header className="px-4 lg:px-6 h-14 flex items-center border-b border-gray-800 relative z-10">
         <Link className="flex items-center justify-center" href="#">
-          <svg className="h-6 w-6" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-            <path d="M93.94 42.63H13.78l20.28-35.12h80.16L93.94 42.63zM43.63 88.78l-29.85-51.7h80.16l29.85 51.7H43.63zm70.59 31.59H34.06L13.78 85.25h80.16l20.28 35.12z" fill="#00FFA3"/>
+          <svg
+            className="h-6 w-6"
+            viewBox="0 0 128 128"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M93.94 42.63H13.78l20.28-35.12h80.16L93.94 42.63zM43.63 88.78l-29.85-51.7h80.16l29.85 51.7H43.63zm70.59 31.59H34.06L13.78 85.25h80.16l20.28 35.12z"
+              fill="#00FFA3"
+            />
           </svg>
           <span className="sr-only">Solana Dev Tools</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link href="/faq">
-          <Button className="text-sm font-medium hover:text-gray-400">
-            FAQ
-          </Button>
+            <Button className="text-sm font-medium hover:text-gray-400">
+              FAQ
+            </Button>
           </Link>
-          <Button className="text-sm font-medium hover:text-gray-400"  onClick={() => {
-            toast({
-              description: "Coming soon. Use our other tools until then!",
-            })
-          }}>
+          <Button
+            className="text-sm font-medium hover:text-gray-400"
+            onClick={() => {
+              toast({
+                description: "Coming soon. Use our other tools until then!",
+              });
+            }}
+          >
             Other Tools
           </Button>
         </nav>
@@ -101,11 +121,16 @@ export default function Component() {
             </div>
           </div>
         </section>
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-gray-800">
+        <section
+          id="features"
+          className="w-full py-12 md:py-24 lg:py-32 bg-gray-800"
+        >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Key Features</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+                  Key Features
+                </h2>
                 <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Essential tools to kickstart your Solana development journey.
                 </p>
@@ -113,11 +138,17 @@ export default function Component() {
               <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem]">
                 <Card className="bg-gray-800 border-gray-700">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-lg font-medium text-white">Test SOL Faucet</CardTitle>
+                    <CardTitle className="text-lg font-medium text-white">
+                      Test SOL Faucet
+                    </CardTitle>
                     <Droplets className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-400">Get test SOL tokens instantly for your development and testing needs. Our faucet provides a seamless way to fund your test wallets.</p>
+                    <p className="text-sm text-gray-400">
+                      Get test SOL tokens instantly for your development and
+                      testing needs. Our faucet provides a seamless way to fund
+                      your test wallets.
+                    </p>
                   </CardContent>
                   <CardFooter>
                     <Link
@@ -130,11 +161,17 @@ export default function Component() {
                 </Card>
                 <Card className="bg-gray-800 border-gray-700">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-lg font-medium text-white">Wallet Generator</CardTitle>
+                    <CardTitle className="text-lg font-medium text-white">
+                      Wallet Generator
+                    </CardTitle>
                     <Wallet className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-gray-400">Create new Solana wallets effortlessly for your projects. Our wallet generator ensures secure and unique addresses for your applications.</p>
+                    <p className="text-sm text-gray-400">
+                      Create new Solana wallets effortlessly for your projects.
+                      Our wallet generator ensures secure and unique addresses
+                      for your applications.
+                    </p>
                   </CardContent>
                   <CardFooter>
                     <Link
@@ -153,19 +190,26 @@ export default function Component() {
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">Other Useful Tools</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+                  Other Useful Tools
+                </h2>
                 <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Explore more tools to enhance your Solana development experience.
+                  Explore more tools to enhance your Solana development
+                  experience.
                 </p>
               </div>
               <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem]">
                 <Card className="bg-gray-800 border-gray-700">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium text-white">Explorer</CardTitle>
+                    <CardTitle className="text-sm font-medium text-white">
+                      Explorer
+                    </CardTitle>
                     <Code className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
-                    <p className="text-xs text-gray-400">Explore transactions and accounts</p>
+                    <p className="text-xs text-gray-400">
+                      Explore transactions and accounts
+                    </p>
                   </CardContent>
                   <CardFooter>
                     <Link
@@ -179,11 +223,15 @@ export default function Component() {
                 </Card>
                 <Card className="bg-gray-800 border-gray-700">
                   <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium text-white">Playground</CardTitle>
+                    <CardTitle className="text-sm font-medium text-white">
+                      Playground
+                    </CardTitle>
                     <Code className="h-4 w-4 text-gray-400" />
                   </CardHeader>
                   <CardContent>
-                    <p className="text-xs text-gray-400">Interactive Solana coding environment</p>
+                    <p className="text-xs text-gray-400">
+                      Interactive Solana coding environment
+                    </p>
                   </CardContent>
                   <CardFooter>
                     <Link
@@ -201,16 +249,24 @@ export default function Component() {
         </section>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-800 relative z-10">
-        <p className="text-xs text-gray-400">© 2024 Solana Dev Tools. All rights reserved.</p>
+        <p className="text-xs text-gray-400">
+          © 2024 Solana Dev Tools. All rights reserved.
+        </p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link className="text-xs hover:underline underline-offset-4 text-gray-400 hover:text-gray-100" href="https://x.com/amritwt">
+          <Link
+            className="text-xs hover:underline underline-offset-4 text-gray-400 hover:text-gray-100"
+            href="https://x.com/0xAmansol"
+          >
             Twitter
           </Link>
-          <Link className="text-xs hover:underline underline-offset-4 text-gray-400 hover:text-gray-100" href="https://github.com/retrogtx">
+          <Link
+            className="text-xs hover:underline underline-offset-4 text-gray-400 hover:text-gray-100"
+            href="https://github.com/0xAmansol"
+          >
             Github
           </Link>
         </nav>
       </footer>
     </div>
-  )
+  );
 }
