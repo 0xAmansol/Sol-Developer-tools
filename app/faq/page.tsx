@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
+} from "@/components/ui/accordion";
 
 export default function FAQAccordion() {
   return (
@@ -17,7 +17,7 @@ export default function FAQAccordion() {
             Who has made this?
           </AccordionTrigger>
           <AccordionContent className="text-gray-400 bg-gray-700 p-4 rounded-lg">
-            amritwt on x dot com
+            0xAmansol on x dot com
           </AccordionContent>
         </AccordionItem>
 
@@ -27,7 +27,8 @@ export default function FAQAccordion() {
             Why was this made?
           </AccordionTrigger>
           <AccordionContent className="text-gray-400 bg-gray-700 p-4 rounded-lg">
-            This was made as a beginner effort towards participating in the Superteam × 100xDevs hackathon.
+            This was made as a beginner effort towards participating in the
+            Superteam × 100xDevs hackathon.
           </AccordionContent>
         </AccordionItem>
 
@@ -37,7 +38,8 @@ export default function FAQAccordion() {
             What are some upcoming tools?
           </AccordionTrigger>
           <AccordionContent className="text-gray-400 bg-gray-700 p-4 rounded-lg">
-            In the near future, I&apos;m planning to add a playground, a token minting tool as I hone my skills throughout the cohort.
+            In the near future, I&apos;m planning to add a playground, a token
+            minting tool as I hone my skills throughout the cohort.
           </AccordionContent>
         </AccordionItem>
 
